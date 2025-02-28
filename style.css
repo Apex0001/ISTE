@@ -1,0 +1,277 @@
+/* CSS Variables for Dark & Light Modes */
+:root {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --accent-color: #0d6efd;
+  --nav-bg: #1f1f1f;
+  --btn-bg: #0d6efd;
+}
+
+body.light-mode {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --card-bg: #fff;
+  --accent-color: #007BFF;
+  --nav-bg: #007BFF;
+  --btn-bg: #007BFF;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Navigation Bar */
+header {
+  background: var(--nav-bg);
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+.nav-links li {
+  margin-left: 1.5rem;
+}
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: -3px;
+  transition: width 0.3s;
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+.mode-toggle {
+  background: transparent;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+.mode-toggle:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Main Content Layout */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* Card Component for Form & Preview */
+.card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  transition: transform 0.3s, background 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+h2 {
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+/* Form Styling */
+#resumeForm .form-group {
+  margin-bottom: 1rem;
+}
+#resumeForm label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+#resumeForm input,
+#resumeForm textarea,
+#resumeForm select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color 0.3s;
+}
+#resumeForm input:focus,
+#resumeForm textarea:focus,
+#resumeForm select:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.btn {
+  background: var(--btn-bg);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Preview Section Styling */
+.preview-content {
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: 4px;
+  min-height: 200px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  border: 1px solid #444;
+}
+.preview-content h3 {
+  margin-bottom: 0.5rem;
+}
+.preview-content h4 {
+  margin-top: 1rem;
+}
+
+/* Template Styles */
+.classic-template {
+  font-family: 'Montserrat', sans-serif;
+}
+.modern-template {
+  font-family: 'Arial', sans-serif;
+  color: var(--accent-color);
+}
+
+/* AI Suggestion Styling */
+.ai-suggestion {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid #444;
+  border-left: 4px solid var(--accent-color);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.ai-icon {
+  margin-right: 0.5rem;
+  color: var(--accent-color);
+}
+.ai-tip {
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* Resume Score Styling */
+.resume-score {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Fade-in & Fade-out Animations */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer Styling */
+footer {
+  background: var(--nav-bg);
+  color: var(--text-color);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  transition: background 0.3s;
+}
+.footer-links a {
+  color: var(--text-color);
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+}

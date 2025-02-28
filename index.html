@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Powered Resume Builder</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">MyResume</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Templates</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <button id="modeToggle" class="mode-toggle">Light Mode</button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Resume Builder Form -->
+    <section id="builder" class="card">
+      <h2>Create Your Resume</h2>
+      <form id="resumeForm">
+        <div class="form-group">
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" placeholder="John Doe" title="Enter your full legal name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="john@example.com" title="Enter a professional email address">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" placeholder="123-456-7890" title="Enter your contact number">
+        </div>
+        <div class="form-group">
+          <label for="education">Education:</label>
+          <textarea id="education" placeholder="Your education details..." title="List your degrees and institutions"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="experience">Experience:</label>
+          <textarea id="experience" placeholder="Your work experience..." title="List your job experiences"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="skills">Skills:</label>
+          <textarea id="skills" placeholder="Your skills..." title="List your key skills"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="projects">Projects:</label>
+          <textarea id="projects" placeholder="Describe your projects..." title="List any relevant projects"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="certifications">Certifications:</label>
+          <textarea id="certifications" placeholder="List certifications..." title="List any relevant certifications"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="templateSelect">Choose Template:</label>
+          <select id="templateSelect">
+            <option value="classic">Classic</option>
+            <option value="modern">Modern</option>
+          </select>
+        </div>
+        <div class="button-group">
+          <button type="button" class="btn" onclick="updatePreview()">Update Preview</button>
+          <button type="button" class="btn" onclick="downloadPDF()">Download PDF</button>
+          <button type="button" class="btn" onclick="saveResume()">Save Resume</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Live Preview Section -->
+    <section id="preview" class="card">
+      <h2>Live Preview</h2>
+      <div id="resumePreview" class="preview-content classic-template">
+        <p>Your resume will appear here...</p>
+      </div>
+      <div id="aiSuggestion" class="ai-suggestion">
+        <svg class="ai-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M12 2C10.355 2 9 3.355 9 5s1.355 3 3 3 3-1.355 3-3-1.355-3-3-3zm7 8h-1v6h1c.552 0 1 .447 1 1v3c0 .553-.448 1-1 1H5c-.552 0-1-.447-1-1v-3c0-.553.448-1 1-1h1V10H5c-.553 0-1-.448-1-1V5c0-.553.447-1 1-1h1.764c.218-.711.727-1.267 1.387-1.561L9 2h6l.85.439c.66.294 1.169.85 1.387 1.561H19c.553 0 1 .447 1 1v3c0 .552-.447 1-1 1zM7 10h10v6H7v-6z"/>
+        </svg>
+        <p class="ai-tip">AI tip will appear here...</p>
+      </div>
+      <div id="resumeScore" class="resume-score">
+        Resume Score: <span id="scoreValue">0</span>/100
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <p>&copy; 2025 MyResume. All rights reserved.</p>
+  </footer>
+
+  <!-- jsPDF Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
